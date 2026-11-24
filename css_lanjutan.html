@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resonansi Musik UPGRIS</title>
+    <style>
+        
+    /* Perhitungan untuk CSS dengan NPM 25670101
+    1. Warna utama    : RGB(0x10, 1x10, 120) = RGB(0, 10, 120)
+    2. Padding header : (10+0) = 10px atas-bawah, (15+1) = 16px kiri-kanan
+    3. Lebar container: (80+0)% = 80%, max-width (900+1x10) = 910px
+    4. Jarak panel    : (10+1) = 11px
+    5. Posisi badge   : top (5+0) = 5px, right (5+1) = 6px */
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        background-color: rgb(0, 10, 120);
+    }
+    .container {
+        width: 80%;
+        max-width: 910px;
+        margin: 20px auto;
+    }
+
+    header {
+        padding: 10px 16px;
+        text-align: center;
+        margin-bottom: 11px;
+        border-radius: 6px;
+    }
+    header h1, h2 {
+        color: white;
+        margin: 15px 0;
+    }
+
+    a {
+        color: rgb(0, 10, 120);
+    }
+    a:hover {
+        color: rgb(194, 35, 0);
+    }
+
+    .slogan {
+        display: inline-block;
+        padding: 10px 20px;
+        font-weight: bold;
+        color: #ffffff;
+        background: radial-gradient(ellipse, rgb(42, 50, 147) 10%, rgb(0, 4, 50) 100%);
+        border: 3px solid #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+        animation: geser 3s ease-in-out infinite alternate;
+    }
+    @keyframes geser {
+        from {transform: translateX(-20px);}
+        to   {transform: translateX(20px);}
+    }
+
+    nav {
+        margin: 25px 0 20px;
+    }
+    nav a {
+        color: #e1d5f5;
+        text-decoration: none;
+        margin: 0 10px;
+        padding: 8px 12px;
+        border-radius: 4px;
+    }
+    nav a:hover {
+        color: rgb(0, 10, 120);
+        background-color: #ffffff;
+        padding: 8px 12px;
+        border-radius: 4px;
+    }
+
+    .panel {
+        background-color: white;
+        border-radius: 6px;
+        margin-bottom: 11px;
+        overflow: hidden;
+    }
+    .panel h2 {
+        margin: 0;
+        padding: 10px;
+        font-size: 18px;
+        color: rgb(0, 10, 120);
+        background-color: #f4f4f4;
+        border-bottom: 2px solid rgb(0, 10, 120);
+    }
+    .isi {
+        padding: 10px;
+    }
+    .catatan {
+        background-color: #dcddff;
+        border-left: 4px solid rgb(0, 10, 120);
+        padding: 12px;
+        text-align: center;
+    }
+    .tengah {
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    .agenda {
+        background-color: #e6e0f3;
+        padding: 15px 0;
+    }
+    .kartu {
+        width: 300px;
+        max-width: 90%;
+        margin: 0 auto 11px;
+        padding: 10px 12px;
+        box-sizing: border-box;
+        background-color: #f1edfa;
+        border: 2px solid rgb(0, 10, 120);
+    }
+    .kartu h3 {
+        margin: 8px 0;
+        color: rgb(0, 10, 120);
+    }
+    .info {
+        display: inline-block;
+        padding: 4px 8px;
+        font-size: 11px;
+        border: 1px solid rgb(0, 10, 120);
+    }
+
+    .daftar {
+        margin: 10px;
+        padding: 10px;
+        background-color: #f1edfa;
+        border: 2px dashed rgb(0, 10, 120);
+    }
+    .badge {
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        right: 6px;
+        padding: 5px 10px;
+        font-weight: bold;
+        color: white;
+        background-color: rgb(0, 10, 120);
+        transition: transform 0.3s, background-color 0.3s;
+    }
+    .badge:hover {
+        background-color: rgb(255, 47, 0);
+        color: whitesmoke;
+    }
+
+    .area-z {
+        position: relative;
+        height: 110px;
+    }
+    .kotak {
+        position: absolute;
+        width: 130px;
+        height: 60px;
+        padding: 8px;
+        box-sizing: border-box;
+        color: white;
+        font-size: 12px;
+    }
+    .belakang {
+        top: 10px;
+        left: 10px;
+        background-color: #1565c0;
+        z-index: 1;
+    }
+    .depan {
+        top: 35px;
+        left: 60px;
+        background-color: #c62828;
+        z-index: 2;
+    }
+
+    .peserta, .penonton, .kontak {
+        padding: 10px;
+        border: 1px solid #b6a9d6;
+    }
+    .peserta   {width: 50%; background-color: #e3dcf3;}
+    .penonton  {width: 50%; background-color: #cdebd5;}
+    .kontak    {background-color: #ddd8ea;}
+
+    .bintang {
+        padding: 10px;
+        margin-bottom: 11px;
+        background-color: #f1edfa;
+        border-left: 4px solid rgb(0, 10, 120);
+    }
+    .harga {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin-bottom: 11px;
+        border: 1px solid rgb(0, 10, 120);
+    }
+    .tombol {
+        display: inline-block;
+        padding: 10px 24px;
+        color: white;
+        background-color: rgb(0, 10, 120);
+        border-radius: 3px;
+    }
+    .tombol:hover {
+        background-color: rgb(187, 0, 0);
+    }
+    button.tombol {
+        border: none;
+        cursor: pointer;
+        font-size: 13px;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 4px;
+        font-weight: bold;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid rgb(0, 10, 120);
+        border-radius: 4px;
+    }
+    input[type="text"]:focus {
+        outline: none;
+        border-color: rgb(0, 10, 120);
+        background-color: #7b8aff72;
+    }
+    label.radio {
+        font-weight: normal;
+        margin: 6px 0;
+    }
+    input[type="radio"] {
+        margin-right: 6px;
+    }
+
+    /* Layar 390px */
+    @media (max-width: 390px) {
+        .container {width: 95%;}
+        nav a {display: block; margin: 5px 0;}
+        .peserta, .penonton {width: 100%;}
+        .slogan {font-size: 12px; padding: 8px 12px;}
+        @keyframes geser {
+            from {transform: translateX(-15px);}
+            to   {transform: translateX(15px);}
+        }
+    }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <header id="beranda">
+        <h1>RESONANSI MUSIK UPGRIS</h1>
+        <h2>MENJAGA NYALA LEWAT MELODI</h2>
+        <div class="slogan">Bersuara dengan Karya, Bersatu dalam Nada</div>
+        <nav>
+            <a href="#beranda">Beranda</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#agenda">Agenda</a>
+            <a href="#daftar">Daftar</a>
+            <a href="#informasi">Informasi</a>
+            <a href="#guest">Artis</a>
+            <a href="#tiket">Tiket</a>
+        </nav>
+    </header>
+    
+    <div class="panel" id="tentang">
+        <h2>Tentang Festival Musik</h2>
+        <div class="isi">
+            <div class="catatan">Festival Musik Kampus adalah ruang aman tanpa batas untuk merayakan keberagaman, melepas topeng akademik, dan berteriak lantang menjadi diri sendiri.</div>
+            <p class="tengah">BERSATU, BERSUARA, BERNADA</p>
+            <a href="#tiket">Pendaftaran dibuka untuk seluruh elemen kampus.</a>
+        </div>
+    </div>
+
+    <div class="panel" id="agenda">
+        <h2>Agenda Kegiatan</h2>
+        <div class="agenda">
+            <div class="kartu">
+                <h3>Konser Akustik</h3>
+                <p>Penampilan santai dari musisi kampus di taman terbuka.</p>
+                <span class="info">16.00 WIB - 18.00 WIB</span>
+                <span class="info">Taman Gedung Pusat</span>
+            </div>
+            <div class="kartu">
+                <h3>Lomba Band Mahasiswa</h3>
+                <p>Adu kekompakan band dari setiap program studi.</p>
+                <span class="info">19.00 WIB - 20.00 WIB</span>
+                <span class="info">Gedung Pusat Lantai 7</span>
+            </div>
+            <div class="kartu">
+                <h3>Penampilan Guest Star</h3>
+                <p>Penampilan istimewa dari artis tamu.</p>
+                <span class="info">20.00 WIB - 23.10 WIB</span>
+                <span class="info">Balairung</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel" id="daftar">
+        <h2>Informasi Pendaftaran</h2>
+        <div class="daftar">
+            <h3>Daftar Sekarang!</h3>
+            <p>Pendaftaran penampil band dan solo tidak dipungut biaya.</p>
+            <button type="submit" class="badge">GRATIS</button>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2>Contoh Z-index</h2>
+        <div class="isi">
+            <p>Kotak merah akan tampil di depan kotak biru.</p>
+            <div class="area-z">
+                <div class="kotak belakang">panggung penampil utama</div>
+                <div class="kotak depan">panggung penampil ke-dua</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel" id="informasi">
+        <h2>Informasi Tambahan</h2>
+        <div class="peserta"><b>Untuk Penampil</b><p>Bawa alat musik sendiri dan hadir 30 menit sebelum tampil.</p></div>
+        <div class="penonton"><b>Untuk Penonton</b><p>Datang lebih awal agar dapat tempat terbaik.</p></div>
+        <div class="kontak"><b>Kontak Panitia</b><p>Pertanyaan bisa disampaikan melalui media sosial festival.</p></div>
+    </div>
+
+    <div class="panel" id="guest">
+        <h2>Guest Star</h2>
+        <div class="isi">
+            <div class="bintang"><b>.Feast</b><br>Band Rock - 20.00 WIB</div>
+            <div class="bintang"><b>Hindia</b><br>Band Indie - 21.00 WIB</div>
+            <div class="bintang"><b>Reality Club</b><br>Indie Rock - 22.00 WIB</div>
+            <div class="bintang"><b>The Cangcuters</b><br>Rock and Roll - 23.10 WIB</div>
+        </div>
+    </div>
+
+    <div class="panel" id="tiket">
+        <h2>Isi Identitas Pembelian Tiket</h2>
+        <div class="isi">
+            <form>
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" placeholder="Masukkan nama lengkap">
+
+                <label for="npm">NPM atau NIP</label>
+                <input type="text" id="npm" placeholder="Masukkan NPM atau NIP(untuk dosen)">
+
+                <label for="program-studi">Program Studi</label>
+                <input type="text" id="program-studi" placeholder="Contoh: INFORMATIKA">
+
+                <label>Jenis Tiket</label>
+                <label class="radio"><input type="radio" name="jenis" value="reguler"> Reguler - Rp25.000</label>
+                <label class="radio"><input type="radio" name="jenis" value="vip"> VIP - Rp50.000</label>
+
+                <p class="tengah"><button type="submit" class="tombol"><b>BELI TIKET</b></button></p>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
